@@ -1,0 +1,25 @@
+{
+    "name": "odsearch",
+    "version": "1.0.0",
+    "description": "open domino package",
+    "main": "index.js",
+    "scripts": {
+        "test": "mocha --reporter spec",
+        "cover": "node_modules/istanbul/lib/cli.js cover node_modules/mocha/bin/_mocha -- -R spec test/*",
+        "start": "node .\test\testfile.js"
+    },
+    "author": "sujj",
+    "license": "ISC",
+    "engines": {
+        "node": ">=10.0.0"
+    },
+    "devDependencies": {
+        "chai": "^4.2.0",
+        "mocha": "^6.0.0"
+    },
+    "dependencies": {
+        "appjs": "0.0.20",
+        "appjs-win32": "0.0.19",
+        "log4js": "^4.0.2"
+    }
+}
