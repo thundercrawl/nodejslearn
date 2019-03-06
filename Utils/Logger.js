@@ -3,25 +3,42 @@ var FileUtils = require('./FileUtils');
 var LOG_FILE_PATH = "c:/tmp/console.log";
 FileUtils.createLogFileBYPATH(LOG_FILE_PATH)
 log4js.configure({
-    appenders: { console: { type: 'console' } },
-    categories: { default: { appenders: ['console'], level: 'debug' } }
-});
-var logger = log4js.getLogger('console');
+    appenders: {
+        all: { type: 'file', filename: LOG_FILE_PATH },
+        console: { type: 'console' }
+    },
 
+    categories: { default: { appenders: ['console'], level: 'info' }, }
+});
+var loggerALL = log4js.getLogger();
+var loggerConsole = log4js.getLogger('print');
 module.exports = {
+    setLogLevel: function(level, type) {
+        log4js.configure({
+            appenders: {
+                all: { type: 'file', filename: LOG_FILE_PATH },
+                console: { type: 'console' }
+            },
+
+            categories: { default: { appenders: [type], level: level }, }
+        });
+
+    },
     LoggerInfo: function(message) {
-        logger.info(message);
+        loggerALL.info(message);
+        //   loggerConsole.info(message)
     },
 
     loggerError: function(message) {
-        logger.error(message)
+        loggerALL.error(message)
     },
 
     loggerDebug: function(message) {
-        logger.debug(message)
+        loggerALL.debug(message)
     },
 
     loggerFatal: function(message) {
-        logger.fatal(message)
+        loggerALL.fatal(message)
+
     }
 };
