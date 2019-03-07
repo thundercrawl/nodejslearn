@@ -28,7 +28,10 @@ module.exports = {
         loggerALL.info(message);
         //   loggerConsole.info(message)
     },
-
+    LoggerWarn: function(message) {
+        loggerALL.warn(message);
+        //   loggerConsole.info(message)
+    },
     loggerError: function(message) {
         loggerALL.error(message)
     },

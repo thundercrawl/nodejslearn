@@ -1,26 +1,17 @@
-'use strict';
-/**
- * Adds commas to a number
- * @param {number} number
- * @param {string} locale
- * @return {string}
- */
-module.exports = function(number, locale) {
-    return number.toLocaleString(locale);
-};
+const circle = require('./com/od/math/circle');
+var logger = require('./com/od/utils/Logger');
+const r = 3;
 
-var http = require('http');
+logger.LoggerInfo(`Circle with radius ${r} has
+  area: ${circle.area(r)};
+  circunference: ${circle.circumference(r)}`);
 
-http.createServer(function(request, response) {
+var foo = ['a', 'ab', 'abc'];
 
-    // 发送 HTTP 头部 
-    // HTTP 状态值: 200 : OK
-    // 内容类型: text/plain
-    response.writeHead(200, { 'Content-Type': 'text/plain' });
+var bar = foo.map(g => g.length);
 
-    // 发送响应数据 "Hello World"
-    response.end("Hello, Universe! I'm running on Cloud Studio!\n");
-}).listen(8888);
+var f1 = f => f ** 3
 
-// 终端打印如下信息
-console.log('Server running at http://127.0.0.1:8888/');
+console.log(f1(3))
+
+console.log(bar); // 1,2,3
