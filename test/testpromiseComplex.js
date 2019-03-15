@@ -21,6 +21,7 @@ var search = function() {
 }
 
 
+
 async function showOff(phone) {
     return new Promise(
         (resolve, reject) => {
@@ -31,6 +32,8 @@ async function showOff(phone) {
         }
     );
 };
+
+
 var searchSite = new search()
 console.log("search baidu")
 searchSite.searchREST("http://www.baidu.com").then((value) => {
@@ -87,3 +90,7 @@ searchSite.searchREST("http://localhost/mail/admin.nsf").then((value) => {
         console.log("Finally release some resources")
     });
     console.log("google")*/
+
+Promise.all([searchSite.searchREST("http://www.baidu.com")]).then((value) => {
+    console.log("promise all:" + value)
+})

@@ -1,0 +1,9 @@
+{
+    "status": 200,
+    "message": "success",
+    "result": [
+        { "value": "result1" },
+        { "value": "result2" }
+    ]
+
+}
