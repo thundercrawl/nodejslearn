@@ -1,5 +1,5 @@
 var http = require('http')
-
+var BasicAuth = require('./com/od/auth/basic')
 class searchDQL {
     constructor(url, protocal) {
         this.url = url;
@@ -9,9 +9,18 @@ class searchDQL {
 }
 module.exports = {
 
-    DQLREST: function(url, dqlstr) {
+    DQLREST: function(url, dqlstr, basicAuth) {
+
+        let options = {
+            host: basicAuth.host,
+            port: 80,
+            method: "GET",
+            path: url,
+            auth: basicAuth.username + ':' + basicAuth.password
+        };
+        console.log(options)
         return new Promise((resolve, reject) => {
-            http.get(url, (res) => {
+            http.get(options, (res) => {
                 if (res.statusCode == '200') {
                     res.setEncoding('utf8');
                     res.on('data', function(data) {

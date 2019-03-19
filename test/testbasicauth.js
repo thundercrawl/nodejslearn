@@ -1,4 +1,9 @@
-var basicAUTH = require("../com/od/auth/basic")
+var BasicAuth = require("../com/od/auth/basic")
+var username = 'sujj';
+var password = '123';
+var basicode = Buffer.from(username + ':' + password).toString('base64')
+console.log(basicode)
+var basic = new BasicAuth('admin', 'passowrd', 'localhost')
 
-var basic = new basicAUTH('admin', 'passowrd', 'http://localhost/mail/admin.nsf')
-basic.basicHeader();
+console.log(basic.BasicHeader())
+console.log(basic)
