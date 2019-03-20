@@ -7,7 +7,8 @@ class searchDQL {
     }
 
 }
-module.exports = {
+module.exports.searchEntry = searchDQL
+module.exports.api = {
 
     DQLREST: function(url, dqlstr, basicAuth) {
 
