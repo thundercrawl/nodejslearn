@@ -18,6 +18,10 @@ var connectOptions = {
 
 module.exports = function(brokeruri, dest) {
     this.brokerURI = brokeruri;
+    this.subscribeHeaders = {
+        'destination': dest,
+        'ack': 'client-individual'
+    };
     this.sendMessage = function(message) {
         stompit.connect(connectOptions, function(error, client) {
             logger.LoggerInfo("uri is:" + brokeruri)
@@ -35,10 +39,7 @@ module.exports = function(brokeruri, dest) {
             frame.write(message);
             frame.end();
 
-            var subscribeHeaders = {
-                'destination': '/queue/test',
-                'ack': 'client-individual'
-            };
+
         });
 
     };
@@ -71,3 +72,4 @@ module.exports = function(brokeruri, dest) {
     };
 
 };
+6
