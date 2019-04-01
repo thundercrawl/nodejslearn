@@ -4,9 +4,11 @@
     "description": "open domino package",
     "main": "index.js",
     "scripts": {
-        "test": "mocha --reporter spec",
+        "test": "npm run test-unit",
+        "test-unit": "mocha /**/*.spec.js",
         "cover": "node_modules/istanbul/lib/cli.js cover node_modules/mocha/bin/_mocha -- -R spec test/*",
-        "dev": "node .\test\testModules.js"
+        "dev": "node .\test\testModules.js",
+        "codecover": "istanbul cover _mocha *.spec.js"
     },
     "author": "sujj",
     "license": "ISC",
@@ -19,14 +21,19 @@
     },
     "devDependencies": {
         "chai": "^4.2.0",
-        "mocha": "^6.0.0"
+        "mocha": "^6.0.2"
     },
     "dependencies": {
         "appjs": "0.0.20",
         "appjs-win32": "0.0.19",
+        "co-mocha": "^1.2.2",
+        "cross-env": "^5.2.0",
+        "istanbul": "^0.4.5",
         "log4js": "^4.0.2",
         "nan": "^2.12.1",
         "promise": "^8.0.2",
+        "sinon": "^7.3.1",
+        "sinon-chai": "^3.3.0",
         "stomp": "^0.1.1",
         "stomp-client": "^0.9.0",
         "stompit": "^0.26.0",

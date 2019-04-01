@@ -7,8 +7,8 @@ var servers = [{
     port: 61613,
     connectHeaders: {
         'host': 'localhost',
-        'login': 'admin',
-        'passcode': 'password',
+        'login': 'admin@hcl.com',
+        'passcode': 'passw0rd',
         'heart-beat': '100,100'
     }
 }];
